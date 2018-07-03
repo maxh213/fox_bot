@@ -22,7 +22,6 @@ def run_on_server():
 	bot_configs = Bot_configs(consumer_key, consumer_key_secret, access_token, access_token_secret)
 	bot, fox_bot = create_bots(bot_configs)
 	bot_functions = get_bot_functions(bot, fox_bot)
-	search_terms = get_search_terms()
 	print("Successfully created the bots...")
 
 	while (True):
@@ -30,7 +29,7 @@ def run_on_server():
 		sleep_until_next_action()
 		random.choice(bot_functions)
 			
-def get_bot_functions(bot, cat_bot):
+def get_bot_functions(bot, fox_bot):
 	return [
 		fox_bot.tweet_happy
 	]
@@ -39,7 +38,7 @@ def get_bot_functions(bot, cat_bot):
 def sleep_until_next_action():
 	sleep_time = randint(MINUMUM_SLEEP_IN_SECONDS,MAXIMUM_SLEEP_IN_SECONDS)
 	sleep_time_in_days = sleep_time / 60 / 24
-	print("Going to sleep for ", sleep_time_in_days, " days")
+	print("Going to sleep for ", sleep_time_in_days, " hours")
 	sleep(sleep_time)
 
 def create_bots(bot_configs):
