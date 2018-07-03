@@ -9,12 +9,12 @@ from random import randint
 from time import sleep
 
 MINUMUM_SLEEP_IN_SECONDS = 21600 # 6 hours
-MAXIMUM_SLEEP_IN_SECONDS = 21600 * 4 * 2 # 2 days
+MAXIMUM_SLEEP_IN_SECONDS = 21600 * 4 # 1 day
 
 def main():
 	bot_configs = Bot_configs(consumer_key, consumer_key_secret, access_token, access_token_secret)
 	bot, fox_bot = create_bots(bot_configs)
-
+	bot.follow_back_all_followers()
 	fox_bot.tweet_happy()
 
 def run_on_server():
@@ -27,8 +27,8 @@ def run_on_server():
 
 	while (True):
 		bot.follow_back_all_followers()
-		random.choice(bot_functions)
 		sleep_until_next_action()
+		random.choice(bot_functions)
 			
 def get_bot_functions(bot, cat_bot):
 	return [
