@@ -39,6 +39,7 @@ class Fox_bot:
 			"I can't understand why people want to steal my coat for fur, don't they know it's not theirs?? 🤔" + FOX_EMOJI,
 			"Say no to the fur trade! I like my coat on me thank you very much #BanFur " + FOX_EMOJI,
 			"I'm so lucky I got rescued for the fur farm, but a lot of my friends are still in cages :( #BanFur "
+			"Please don't support the fur trade!"
 		]
 		self.friend_watermelon_tweets = [
 			"My friend felix loves watermelon! " + WATERMELON_EMOJI +  " What are you guys eating today??",
