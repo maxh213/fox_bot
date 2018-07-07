@@ -19,12 +19,10 @@ class Logger:
 		# add the handlers to the logger
 		self.logger.addHandler(self.handler)
 
-		self.fuck = "fuck"
-
 		self.logger.info('Logger set up!')
 
 	def log_info(self, message):
 		self.logger.info(message)
 
-	def test(self):
-		print(self.fuck)
+	def log_error(self, exception):
+		self.logger.error(exception)

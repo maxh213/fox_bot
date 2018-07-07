@@ -21,26 +21,28 @@ def main():
 	fox_bot.tweet_happy_mock()
 
 def run_on_server():
-	logger.log_info("Starting Bot...")
-	bot_configs = Bot_configs(consumer_key, consumer_key_secret, access_token, access_token_secret)
-	bot, fox_bot = create_bots(bot_configs, logger)
-	bot_functions = get_bot_functions(bot, fox_bot)
-	logger.log_info("Successfully created the bots...")
+	try:
+		logger.log_info("Starting Bot...")
+		bot_configs = Bot_configs(consumer_key, consumer_key_secret, access_token, access_token_secret)
+		bot, fox_bot = create_bots(bot_configs, logger)
+		bot_functions = get_bot_functions(bot, fox_bot)
+		logger.log_info("Successfully created the bots...")
 
-	while (True):
-		sleep_until_next_action()
-		bot.follow_back_all_followers()
-		tweet_happy
-		#random.choice(bot_functions)
+		while (True):
+			sleep_until_next_action()
+			bot.follow_back_all_followers()
+			tweet_happy
+			#random.choice(bot_functions)
+	except Exception as exception:
+		logger.log_error(exception)
 			
 def get_bot_functions(bot, fox_bot):
 	return [
 		fox_bot.tweet_happy
 	]
 		
-
 def sleep_until_next_action():
-	sleep_time = randint(MINUMUM_SLEEP_IN_SECONDS,MAXIMUM_SLEEP_IN_SECONDS)
+	sleep_time = get_sleep_time()
 	wake_time = get_current_time_plus_seconds(sleep_time)
 	logger.log_info("Going to sleep until " + wake_time.strftime("%Y-%m-%d %H:%M:%S"))
 	sleep(sleep_time)
