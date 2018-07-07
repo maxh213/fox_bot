@@ -8,8 +8,9 @@ LOCK_EMOJI = "🔒"
 
 class Fox_bot:
 
-	def __init__(self, api):
+	def __init__(self, api, logger):
 		self.api = api
+		self.logger = logger
 		self.happy_directory = "img/happy/"
 		self.sad_directory = "img/sad/"
 		self.friend_food_directory = "img/friends/watermelon/"
@@ -17,10 +18,10 @@ class Fox_bot:
 		self.young_directory = "img/young"
 		self.happy_tweets = [
 			"Today I dug a big hole!",
-			"I am much happier now I'm not living in a cage, I wish more of my friends from the farm were here to join me.",
+			#"I am much happier now I'm not living in a cage, I wish more of my friends from the farm were here to join me.",
 			"I wish all foxes could live as happy a life as me!",  
 			#"I'm so much happier now that I've been rescued from the fur farm " + FOX_EMOJI,
-			"It's so nice to feel the sun on my fur " + SUN_EMOJI + " I never got to see the sun back on the farm..", 
+			"It's so nice to feel the sun on my fur " + SUN_EMOJI + " I never got to see the sun", 
 			"Today's a great day for laying in the sun! " + SUN_EMOJI + " Is it sunny where you are?",
 			#"Every day is great when you aren't locked in a cage!" + OPEN_LOCK_EMOJI + " #Freedom",
 			FOX_EMOJI + FOX_EMOJI,
@@ -35,11 +36,13 @@ class Fox_bot:
 			"Since my humans rescued me I've got to enjoy lots of new things, like grass!!"
 			"Since my humans rescued me I've got to enjoy lots of new things, like fresh air!!"
 			"Since my humans rescued me I've got to enjoy lots of new things, like the sky!!"
-			"Since my humans rescued me I've got to enjoy lots of new things, like having room to run around!!"
-			"I can't understand why people want to steal my coat for fur, don't they know it's not theirs?? 🤔" + FOX_EMOJI,
+			"Since my humans rescued me I've got to enjoy lots of new things, like having room to run around!"
+			"Why do people want to steal my coat? don't they know it's not theirs?? 🤔" + FOX_EMOJI,
 			"Say no to the fur trade! I like my coat on me thank you very much #BanFur " + FOX_EMOJI,
 			"I'm so lucky I got rescued for the fur farm, but a lot of my friends are still in cages :( #BanFur "
-			"Please don't support the fur trade!"
+			"Please don't support the fur trade!",
+			"I just woke up from a nap 😴",
+			"Who doesn't love fresh air? It's sad that my friends in cages never get to experience it :( #BanFur"
 		]
 		self.friend_watermelon_tweets = [
 			"My friend felix loves watermelon! " + WATERMELON_EMOJI +  " What are you guys eating today??",
@@ -61,10 +64,15 @@ class Fox_bot:
 		return random.choice(os.listdir(directory))
 
 	def tweet_happy(self):
-
 		fox_picture = self.happy_directory + self.get_random_picture_filename(self.happy_directory)
-		print(fox_picture)
 		message = self.get_tweet_text(self.happy_tweets)
 		self.api.update_with_media(filename=fox_picture, status=message)
-		print("Tweeted a happy fox picture (" + fox_picture + "), with the message: '", message, "'")
+		self.logger.log_info("Tweeted a happy fox picture (" + fox_picture + "), with the message: '" + message + "'")
+
+	def tweet_happy_mock(self):
+		fox_picture = self.happy_directory + self.get_random_picture_filename(self.happy_directory)
+		message = self.get_tweet_text(self.happy_tweets)
+		#self.api.update_with_media(filename=fox_picture, status=message)
+		print("MOCK: Tweeted a happy fox picture (" + fox_picture + "), with the message: '" +  message + "'")
+	
 	

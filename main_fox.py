@@ -1,5 +1,7 @@
 import tweepy
 import random
+from time_tracker import *
+from logger import Logger
 from secret_constants import *
 from bot_configs import Bot_configs
 from bot import Bot
@@ -10,24 +12,26 @@ from time import sleep
 
 MINUMUM_SLEEP_IN_SECONDS = 21600 # 6 hours
 MAXIMUM_SLEEP_IN_SECONDS = 21600 * 4 # 1 day
+logger = Logger()
 
 def main():
 	bot_configs = Bot_configs(consumer_key, consumer_key_secret, access_token, access_token_secret)
-	bot, fox_bot = create_bots(bot_configs)
+	bot, fox_bot = create_bots(bot_configs, logger)
 	bot.follow_back_all_followers()
-	fox_bot.tweet_happy()
+	fox_bot.tweet_happy_mock()
 
 def run_on_server():
-	print("Starting Bot...")
+	logger.log_info("Starting Bot...")
 	bot_configs = Bot_configs(consumer_key, consumer_key_secret, access_token, access_token_secret)
-	bot, fox_bot = create_bots(bot_configs)
+	bot, fox_bot = create_bots(bot_configs, logger)
 	bot_functions = get_bot_functions(bot, fox_bot)
-	print("Successfully created the bots...")
+	logger.log_info("Successfully created the bots...")
 
 	while (True):
-		bot.follow_back_all_followers()
 		sleep_until_next_action()
-		random.choice(bot_functions)
+		bot.follow_back_all_followers()
+		tweet_happy
+		#random.choice(bot_functions)
 			
 def get_bot_functions(bot, fox_bot):
 	return [
@@ -37,13 +41,13 @@ def get_bot_functions(bot, fox_bot):
 
 def sleep_until_next_action():
 	sleep_time = randint(MINUMUM_SLEEP_IN_SECONDS,MAXIMUM_SLEEP_IN_SECONDS)
-	sleep_time_in_days = sleep_time / 60 / 24
-	print("Going to sleep for ", sleep_time_in_days, " hours")
+	wake_time = get_current_time_plus_seconds(sleep_time)
+	logger.log_info("Going to sleep until " + wake_time.strftime("%Y-%m-%d %H:%M:%S"))
 	sleep(sleep_time)
 
-def create_bots(bot_configs):
+def create_bots(bot_configs, logger):
 	api = get_api(bot_configs)
-	return Bot(api), Fox_bot(api)
+	return Bot(api, logger), Fox_bot(api, logger)
 
 def get_api(bot_configs):
 	auth = tweepy.OAuthHandler(bot_configs.get_consumer_key(), bot_configs.get_consumer_key_secret())
