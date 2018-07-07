@@ -82,5 +82,9 @@ INSERT INTO [dbo].[foxBotTweet] ([tweet],[foxBotTweetTypeId], [count], [lastTwee
 INSERT INTO [dbo].[foxBotTweet] ([tweet],[foxBotTweetTypeId], [count], [lastTweetedDate])
      VALUES('#FoxLife', 1, 1, GETDATE())
 
+select tweet
+from foxBotTweet fbt
+order by fbt.count, fbt.lastTweetedDate asc
+
 	
 
