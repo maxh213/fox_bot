@@ -25,7 +25,7 @@ class Imnotlovinit_repository:
 		tweet_id = tweet_record[0]
 		current_time = time_tracker.get_current_time()
 		query_string = "update foxBotTweet set count = " + str(new_tweet_count) + " , lastTweetedDate = convert(datetime,'" + current_time.strftime("%Y-%m-%d %H:%M:%S") + "') where id = " + str(tweet_id)
-		logger.log_info("RUNNING SQL: " + query_string)
+		self.logger.log_info("RUNNING SQL: " + query_string)
 		SQL_command = (query_string) 
 		self.cursor.execute(SQL_command)
 		self.connection.commit()
