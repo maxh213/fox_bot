@@ -17,7 +17,7 @@ class Imnotlovinit_repository:
 		self.cursor.execute(SQL_command)
 		tweet_record = self.cursor.fetchone()
 
-		#self.mark_tweet_as_used(tweet_record)
+		self.mark_tweet_as_used(tweet_record)
 		return tweet_record[1]
 
 	def mark_tweet_as_used(self, tweet_record):
