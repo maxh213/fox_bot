@@ -1,5 +1,6 @@
 import datetime
 
+#The below means post every day at 5pm
 TWENTY_FOUR_HOUR_CLOCK_POST_HOUR = 17 
 POST_EVERY_DAYS = 1
 
