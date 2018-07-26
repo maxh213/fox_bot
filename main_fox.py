@@ -11,8 +11,6 @@ from random import randint
 from time import sleep
 from repositories import imnotlovinit_repository 
 
-MINUMUM_SLEEP_IN_SECONDS = 21600 # 6 hours
-MAXIMUM_SLEEP_IN_SECONDS = 21600 * 4 # 1 day
 logger = Logger()
 repo = imnotlovinit_repository.Imnotlovinit_repository(logger)
 
@@ -31,14 +29,12 @@ def run_on_server():
 			sleep_until_next_action()
 			bot.follow_back_all_followers()
 			fox_bot.tweet_happy()
+			sleep_until_next_action()
+			fox_bot.tweet_cyril()
 
 	except Exception as exception:
 		logger.log_error(exception)
 			
-def get_bot_functions(bot, fox_bot):
-	return [
-		fox_bot.tweet_happy
-	]
 		
 def sleep_until_next_action():
 	sleep_time = get_sleep_time()

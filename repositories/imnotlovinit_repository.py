@@ -12,7 +12,16 @@ class Imnotlovinit_repository:
 		self.logger = logger
 	
 	def get_next_happy_tweet(self):	
-		SQL_command = ("select id, tweet, foxBotTweetTypeId, count from foxBotTweet fbt order by fbt.count, fbt.lastTweetedDate asc")
+		SQL_command = ("select id, tweet, foxBotTweetTypeId, count from foxBotTweet fbt where fbt.foxBotTweetTypeId = 1 order by fbt.count, fbt.lastTweetedDate asc")
+
+		self.cursor.execute(SQL_command)
+		tweet_record = self.cursor.fetchone()
+
+		self.mark_tweet_as_used(tweet_record)
+		return tweet_record[1]
+
+	def get_next_cyril_tweet(self):	
+		SQL_command = ("select id, tweet, foxBotTweetTypeId, count from foxBotTweet fbt where fbt.foxBotTweetTypeId = 2 order by fbt.count, fbt.lastTweetedDate asc")
 
 		self.cursor.execute(SQL_command)
 		tweet_record = self.cursor.fetchone()
