@@ -21,7 +21,7 @@ class Imnotlovinit_repository:
 		return tweet_record[1]
 
 	def get_next_cyril_tweet(self):	
-		SQL_command = ("select id, tweet, foxBotTweetTypeId, count from foxBotTweet fbt where fbt.foxBotTweetTypeId = 2 order by fbt.count, fbt.lastTweetedDate asc")
+		SQL_command = ("select id, tweet, foxBotTweetTypeId, count from foxBotTweet fbt where fbt.foxBotTweetTypeId = 5 order by fbt.count, fbt.lastTweetedDate asc")
 
 		self.cursor.execute(SQL_command)
 		tweet_record = self.cursor.fetchone()
