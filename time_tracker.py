@@ -1,7 +1,7 @@
 import datetime
 
-#The below means post every day at 5pm
-TWENTY_FOUR_HOUR_CLOCK_POST_HOUR = 17 
+#The below means post every day at 5pm cause time zone of server is +5 uk time
+TWENTY_FOUR_HOUR_CLOCK_POST_HOUR = 12
 POST_EVERY_DAYS = 1
 
 

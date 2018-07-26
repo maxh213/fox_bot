@@ -81,6 +81,26 @@ INSERT INTO [dbo].[foxBotTweet] ([tweet],[foxBotTweetTypeId], [count], [lastTwee
      VALUES('#JustFoxThings', 1, 1, GETDATE())
 INSERT INTO [dbo].[foxBotTweet] ([tweet],[foxBotTweetTypeId], [count], [lastTweetedDate])
      VALUES('#FoxLife', 1, 1, GETDATE())
+INSERT INTO [dbo].[foxBotTweet] ([tweet],[foxBotTweetTypeId], [count], [lastTweetedDate])
+     VALUES('#FoxSake ban fur farms', 1, 0, GETDATE())
+
+INSERT INTO [dbo].[foxBotTweet] ([tweet],[foxBotTweetTypeId], [count], [lastTweetedDate])
+     VALUES('#Friday #Relaxing #LivingMyBestLife', 1, 0, GETDATE())
+
+INSERT INTO [dbo].[foxBotTweet] ([tweet],[foxBotTweetTypeId], [count], [lastTweetedDate])
+     VALUES('Today is a good day to take a nap!', 1, 0, GETDATE())
+
+INSERT INTO [dbo].[foxBotTweet] ([tweet],[foxBotTweetTypeId], [count], [lastTweetedDate])
+     VALUES('Love having all this free space to run around!', 1, 0, GETDATE())
+
+INSERT INTO [dbo].[foxBotTweet] ([tweet],[foxBotTweetTypeId], [count], [lastTweetedDate])
+     VALUES('Did you know foxed love watermelon as a snack in the heat?', 1, 0, GETDATE())
+
+INSERT INTO [dbo].[foxBotTweet] ([tweet],[foxBotTweetTypeId], [count], [lastTweetedDate])
+     VALUES('Today is a good day to take a nap!', 1, 0, GETDATE())
+
+INSERT INTO [dbo].[foxBotTweet] ([tweet],[foxBotTweetTypeId], [count], [lastTweetedDate])
+     VALUES('What''s for lunch today?', 1, 0, GETDATE())
 
 select tweet
 from foxBotTweet fbt
