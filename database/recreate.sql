@@ -102,9 +102,39 @@ INSERT INTO [dbo].[foxBotTweet] ([tweet],[foxBotTweetTypeId], [count], [lastTwee
 INSERT INTO [dbo].[foxBotTweet] ([tweet],[foxBotTweetTypeId], [count], [lastTweetedDate])
      VALUES('What''s for lunch today?', 1, 0, GETDATE())
 
-select tweet
-from foxBotTweet fbt
-order by fbt.count, fbt.lastTweetedDate asc
+
+INSERT INTO [dbo].[foxBotTweetType]
+           ([name])
+     VALUES
+           ('cyril')
+INSERT INTO [dbo].[foxBotTweetType]
+           ([name])
+     VALUES
+           ('ferdynand & cyril')
+
+INSERT INTO [dbo].[foxBotTweet] ([tweet],[foxBotTweetTypeId], [count], [lastTweetedDate])
+     VALUES('This is my friend cyril, she has three legs but is still managing to live her best life on the farm with me!', 5, 0, GETDATE())
+
+INSERT INTO [dbo].[foxBotTweet] ([tweet],[foxBotTweetTypeId], [count], [lastTweetedDate])
+     VALUES('Cyril loves the sunshine too!', 5, 0, GETDATE())
+
+INSERT INTO [dbo].[foxBotTweet] ([tweet],[foxBotTweetTypeId], [count], [lastTweetedDate])
+     VALUES('Cyril loves the camera! Our human friends take so many pictures of us', 5, 0, GETDATE())
+
+INSERT INTO [dbo].[foxBotTweet] ([tweet],[foxBotTweetTypeId], [count], [lastTweetedDate])
+     VALUES('#CyrilMoments', 5, 0, GETDATE())
+
+INSERT INTO [dbo].[foxBotTweet] ([tweet],[foxBotTweetTypeId], [count], [lastTweetedDate])
+     VALUES('So glad me & Cyril got rescued together so we could live in our forever home!', 5, 0, GETDATE())
+
+INSERT INTO [dbo].[foxBotTweet] ([tweet],[foxBotTweetTypeId], [count], [lastTweetedDate])
+     VALUES('#FoxMoments', 5, 0, GETDATE())
+
+INSERT INTO [dbo].[foxBotTweet] ([tweet],[foxBotTweetTypeId], [count], [lastTweetedDate])
+     VALUES('I wish our other fox friends from the farm could have been rescued like Cyril & me :(', 5, 0, GETDATE())
+
+INSERT INTO [dbo].[foxBotTweet] ([tweet],[foxBotTweetTypeId], [count], [lastTweetedDate])
+     VALUES('Cyril likes the heat much more than I do! #BlackFurIsntGoodInTheSun', 5, 0, GETDATE())
 
 	
 
