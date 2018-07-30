@@ -22,7 +22,6 @@ def run_on_server():
 		logger.log_info("Starting Bot...")
 		bot_configs = Bot_configs(consumer_key, consumer_key_secret, access_token, access_token_secret)
 		bot, fox_bot = create_bots(bot_configs, logger, repo)
-		bot_functions = get_bot_functions(bot, fox_bot)
 		logger.log_info("Successfully created the bots...")
 
 		while (True):
